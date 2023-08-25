@@ -16,3 +16,18 @@ firebase.initializeApp(firebaseConfig)
 
 // Initialize FCM
 const messaging = firebase.messaging()
+
+messaging.onBackgroundMessage((payload) => {
+  console.log(
+      '[firebase-messaging-sw.js] Received background message ', 
+      payload
+      )
+      console.log(date)
+  const notificationTitle = payload.notification.title
+  const notificationOptions = {
+    body: payload.notification.body,
+    icon: 'cat.png'
+  }
+
+  self.registration.showNotification(notificationTitle, notificationOptions);
+})
