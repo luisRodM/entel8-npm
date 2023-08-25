@@ -42,7 +42,8 @@ const sendNotification = () => {
         to: token,
         notification: {
             title: title,
-            body: msg
+            body: msg,
+            icon: 'cat.png'
         }
     }
 
